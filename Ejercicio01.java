@@ -39,6 +39,11 @@ public class Ejercicio01 {
         System.out.println("El año es bisiesto: " + metodo8(2020));
         System.out.println("El año a verificar es: 2021");
         System.out.println("El año es bisiesto: " + metodo8(2021));
+        System.out.println("Ejercicio 9: Escribir mostrar en pantalla los primeros 100 numeros primos");
+        System.out.println("Los primeros 100 numeros primos son: " + metodo9());
+        System.out.println("Ejercicio 10: programa para sumar 2 numeros sin usar operadores aritmeticos");
+        System.out.println("Los numeros a sumar son: 5 y 10");
+        System.out.println("La suma de los numeros es: " + metodo10(5, 10));
     }
 
     // 1 Escribir un metodo para encontrar el área de un triángulo a partir de 3
@@ -115,5 +120,44 @@ public class Ejercicio01 {
             bisiesto = false;
         }
         return bisiesto;
+    }
+    // 9. Escribir mostrar en pantalla los primeros 100 numeros primos
+
+    public static String metodo9() {
+        String resultado = "";
+        int contador = 0;
+        int numero = 1;
+        while (contador < 100) {
+            if (esPrimo(numero)) {
+                resultado += numero + " ";
+                contador++;
+            }
+            numero++;
+        }
+        return resultado;
+    }
+
+    public static boolean esPrimo(int numero) {
+        if (numero <= 1) {
+            return false;
+        }
+
+        for (int i = 2; i <= Math.sqrt(numero); i++) {
+            if (numero % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    // 10. Escribir un programa para sumar 2 numeros sin usar operadores aritmeticos
+
+    public static int metodo10(int numero1, int numero2) {
+        int resultado = 0;
+        while (numero2 != 0) {
+            resultado = numero1 & numero2;
+            numero1 = numero1 ^ numero2;
+            numero2 = resultado << 1;
+        }
+        return numero1;
     }
 }
