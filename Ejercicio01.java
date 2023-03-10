@@ -44,6 +44,25 @@ public class Ejercicio01 {
         System.out.println("Ejercicio 10: programa para sumar 2 numeros sin usar operadores aritmeticos");
         System.out.println("Los numeros a sumar son: 5 y 10");
         System.out.println("La suma de los numeros es: " + metodo10(5, 10));
+        System.out.println("Ejercicio 11: verificar si un numero positivo de 2 digitos es palindromo");
+        System.out.println("El numero a verificar es: 55");
+        System.out.println("El numero es palindromo: " + metodo11(11));
+        System.out.println("El numero a verificar es: 54");
+        System.out.println("El numero es palindromo: " + metodo11(12));
+        System.out.println("Ejercicio 12: metodo para sumar todos los digitos de un numero entre 10 y 99");
+        System.out.println("El numero a sumar es: 66");
+        System.out.println("La suma de los digitos es: " + metodo12(66));
+        System.out.println("El numero a sumar es: 67");
+        System.out.println("La suma de los digitos es: " + metodo12(67));
+        System.out.println("Ejercicio 13: método para remover espacios en blanco de un String");
+        System.out.println("El String a modificar es: 'Hola mundo'");
+        System.out.println("El String sin espacios es: " + metodo13("Hola mundo"));
+        System.out.println("Ejercicio 14:Método para invertir un String");
+        System.out.println("El String a invertir es: 'Hola mundo'");
+        System.out.println("El String invertido es: " + metodo14("Hola mundo"));
+        System.out.println("Ejercicio 15: metodo para encontrar el factorial de un numero sin loops");
+        System.out.println("El numero a calcular es: 5");
+        System.out.println("El factorial del numero es: " + metodo15(5));
     }
 
     // 1 Escribir un metodo para encontrar el área de un triángulo a partir de 3
@@ -159,5 +178,60 @@ public class Ejercicio01 {
             numero2 = resultado << 1;
         }
         return numero1;
+    }
+
+    // 11. Escribir un método para verificar si un numero positivo de 2 digitos es
+    // palindromo (Se lee igual de izquierda a derecha que de derecha a izquierda)
+    public static boolean metodo11(int numero) {
+        boolean palindromo = false;
+        int digito1 = numero / 10;
+        int digito2 = numero % 10;
+        if (digito1 == digito2) {
+            palindromo = true;
+        } else {
+            palindromo = false;
+        }
+        return palindromo;
+    }
+
+    // 12. Sin usar loops, escribir un metodo para sumar todos los digitos de un
+    // numero donde 99 >= n >= 10
+    public static int metodo12(int numero) {
+        int resultado = 0;
+        /*
+         * /
+         * System.out.println("numero");
+         * System.out.println("Decenas: " + numero / 10);
+         * System.out.println("Unidades: " + numero % 10);
+         */
+        resultado = (numero / 10) + (numero % 10);
+        return resultado;
+    }
+
+    // 13. Escribir un método para remover espacios en blanco de un String. ej ->
+    // "Hola Mundo" -> "HolaMundo"
+    public static String metodo13(String cadena) {
+        String resultado = "";
+        resultado = cadena.replaceAll(" ", "");
+        return resultado;
+    }
+
+    // 14. Escribir un método para invertir un String. ej -> "Hola" -> "aloH" ---
+    // Sin usar loops
+    public static String metodo14(String cadena) {
+        String resultado = "";
+        resultado = new StringBuilder(cadena).reverse().toString();
+        return resultado;
+    }
+
+    // 15. Escribir un metodo para encontrar el factorial de un numero sin loops
+    public static int metodo15(int numero) {
+        int resultado = 0;
+        if (numero == 0) {
+            resultado = 1;
+        } else {
+            resultado = numero * metodo15(numero - 1);
+        }
+        return resultado;
     }
 }
